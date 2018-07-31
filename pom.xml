@@ -17,6 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<dockerHost>http://localhost:2375</dockerHost>
+		<sonar.host.url>http://sonarqube:9000</sonar.host.url>
 		<version.number>${project.version}</version.number>
 		<docker.repository.name>aritranag20/${project.artifactId}</docker.repository.name>
 	</properties>
