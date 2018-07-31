@@ -6,6 +6,8 @@ services:
     ports:
       - 9000:9000
       - 9092:9092
+    networks:
+      - cdnetwork
     container_name: sonarqube
   jenkins:
     build:
@@ -15,6 +17,8 @@ services:
     ports:
       - 8080:8080
       - 50000:50000
+    networks:
+      - cdnetwork
     container_name: jenkins
     volumes:
       - /tmp/jenkins:/var/jenkins_home #Remember that, the tmp directory is designed to be wiped on system reboot.
@@ -26,18 +30,28 @@ services:
     ports:
     - 27017:27017
     command: --smallfiles
+    networks:
+      - cdnetwork
     container_name: mongo
     
   mongo-init:
     build: ./mongo-init
     links:
       - mongo
-      
+    networks:
+      - cdnetwork
   mongo-client:
     image: mongoclient/mongoclient
     ports:
     - 3030:3000
+    networks:
+      - cdnetwork
     environment:
       - MONGOCLIENT_DEFAULT_CONNECTION_URL=mongodb://mongo:27017
     links:
       - mongo
+      
+networks:
+  cdnetwork:
+    name: cdnetwork
+    driver: bridge
