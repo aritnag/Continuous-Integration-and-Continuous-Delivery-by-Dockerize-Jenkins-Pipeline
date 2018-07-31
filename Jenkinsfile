@@ -1,7 +1,7 @@
-def CONTAINER_NAME="jenkins-pipeline"
+def CONTAINER_NAME="spring-boot-mongo-docker"
 def CONTAINER_TAG="latest"
 def DOCKER_HUB_USER="aritranag20"
-def HTTP_PORT="8090"
+def HTTP_PORT="8000"
 
 node {
 
