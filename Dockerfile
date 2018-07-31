@@ -88,7 +88,7 @@ ENV artifact ${artifactid}-${version}.jar
 
 RUN cp spring-boot-mongo-docker-*.jar  app.jar
 #ENV JAVA_OPTS=""
-#ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar
-#EXPOSE 8080
+ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar
+EXPOSE 8000
 #ENTRYPOINT ["sh", "-c"]
-#CMD ["java -jar spring-boot-mongo-docker-*.jar"] 
+CMD ["java -jar app.jar"] 
