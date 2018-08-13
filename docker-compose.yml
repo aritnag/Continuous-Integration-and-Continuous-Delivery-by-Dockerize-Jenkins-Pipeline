@@ -1,4 +1,4 @@
-version: '3.2' #docker-compose.yml
+version: '2' #docker-compose.yml
 services:
   sonarqube:
     build:
@@ -53,5 +53,5 @@ services:
       
 networks:
   cdnetwork:
-    name: cdnetwork
+#    name: cdnetwork
     driver: bridge
